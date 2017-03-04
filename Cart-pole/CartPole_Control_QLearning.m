@@ -116,7 +116,7 @@ state(2,:)=initial_state;
         reward = -1;
         falls  = falls + 1;
         
-        % SARSA On-policy TD Algorithm
+        % Q-learning Off-policy Control Algorithm
         rhat         = reward + gamma*(p) - Q_value(box); 
         Q_value(box) = Q_value(box) + alpha*(rhat);
 
@@ -132,7 +132,7 @@ state(2,:)=initial_state;
         if(new_box==0)
             new_box=325;
         end
-        %SARSA On-policy TD Algorithm
+        % Q-learning off-policy control algorithm
         reward       = 1;
         rhat         = reward + gamma*(Q_value(new_box)) - Q_value(box);
         Q_value(box) = Q_value(box) + alpha*(rhat);
